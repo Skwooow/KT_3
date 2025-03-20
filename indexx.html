@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            background-color:  rgba(255, 0, 0, 0.888);
+            padding-left: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Каталог товаров</h1>
+    <ul id="menu">
+        <li>
+          <a href="#" class="red">книги</a>
+          <ul>
+            <li><a href="#" class="red">отечественные</a></li>
+            <li>
+              <a href="#" class="red">зарубежные</a>
+              <ul>
+                <li><a href="#" class="red">детективы</a></li>
+                <li><a href="#" class="red">научная фантастика</a></li>
+                <li><a href="#" class="red">исторические</a></li>
+              </ul>
+            </li>
+          </ul>
+          <a href="#" class="red">DVD</a>
+          <ul>
+            <li><a href="#" class="red">отечественные</a></li>
+            <li>
+             
+              <ul>
+                <li><a href="#" class="red">детективы</a></li>
+                <li><a href="#" class="red">научная фантастика</a></li>
+                <li><a href="#" class="red">исторические</a></li>
+              </ul>
+              <a href="#" class="red">зарубежные</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      
+      <script>
+        const menu = document.getElementById('menu');
+        menu.addEventListener('click', function(event) {
+          const target = event.target;
+          if (target.tagName === 'A') {
+            const parentLi = target.parentNode;
+            const subMenu = parentLi.querySelector('ul');
+            if (subMenu) {
+              event.preventDefault();
+              subMenu.style.display = subMenu.style.display === 'block' ? 'none' : 'block';
+            } else {
+              alert('Переход по ссылке: ' + target.href);
+            }
+          }
+        });
+      </script>
+</body>
+</html>
